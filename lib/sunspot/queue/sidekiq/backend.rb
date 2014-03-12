@@ -15,11 +15,11 @@ module Sunspot::Queue::Sidekiq
     end
 
     def index(klass, id)
-      enqueue(index_job, klass, id)
+      enqueue(index_job, klass.to_s, id)
     end
 
     def remove(klass, id)
-      enqueue(removal_job, klass, id)
+      enqueue(removal_job, klass.to_s, id)
     end
 
     private
